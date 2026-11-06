@@ -1,9 +1,15 @@
 {
   "manifest_version": 3,
   "name": "Stale Tab Closer",
-  "version": "1.1",
-  "description": "Close tabs you haven't looked at for a while. The icon badge shows memory use: yellow at 80%, red at 90%.",
+  "version": "1.2",
+  "description": "Close tabs you haven't looked at for a while, and duplicates. Chromium browsers also get a memory badge: yellow at 80%, red at 90%.",
   "permissions": ["tabs", "system.memory", "alarms"],
-  "background": { "service_worker": "background.js" },
-  "action": { "default_popup": "popup.html", "default_title": "Stale Tab Closer" }
+  "background": {
+    "service_worker": "background.js",
+    "scripts": ["background.js"]
+  },
+  "action": { "default_popup": "popup.html", "default_title": "Stale Tab Closer" },
+  "browser_specific_settings": {
+    "gecko": { "id": "stale-tab-closer@simoncf.github.io", "strict_min_version": "121.0" }
+  }
 }

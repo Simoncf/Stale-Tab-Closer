@@ -6,9 +6,10 @@ An Edge/Chrome extension (Manifest V3) that closes tabs you haven't looked at fo
 - Optionally close duplicate tabs (keeps one per page).
 - Review the list and untick any tab before closing.
 - Pinned tabs and tabs playing audio are kept by default; the active tab is never closed.
-- The toolbar badge shows system memory use: green, yellow at 80%, red at 90% (thresholds in `background.js`).
+- On Edge/Chrome the toolbar badge shows system memory use: green, yellow at 80%, red at 90% (thresholds in `background.js`). Firefox has no API for this, so the badge is not shown there.
 
 ## Install
 
-1. Open `edge://extensions` (or `chrome://extensions`) and enable Developer mode.
-2. Click **Load unpacked** and select this folder.
+**Edge / Chrome:** open `edge://extensions` (or `chrome://extensions`), enable Developer mode, click **Load unpacked** and select this folder.
+
+**Firefox (121+):** open `about:debugging#/runtime/this-firefox`, click **Load Temporary Add-on** and select `manifest.json`. It stays until Firefox restarts. For a permanent install the extension must be signed via addons.mozilla.org.

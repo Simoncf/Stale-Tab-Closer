@@ -2,6 +2,8 @@ const YELLOW_AT = 80;
 const RED_AT = 90;
 
 async function updateBadge() {
+  // Firefox has no system.memory API, so the badge is Chromium-only.
+  if (!chrome.system?.memory) return;
   const { capacity, availableCapacity } = await chrome.system.memory.getInfo();
   const used = Math.round((1 - availableCapacity / capacity) * 100);
   const color = used >= RED_AT ? "#d32f2f" : used >= YELLOW_AT ? "#f9a825" : "#2e7d32";
